@@ -1,5 +1,8 @@
 <?php 
 
+//管理ページのログインパスワード
+define('PASSWORD','adminPassword');
+
 //データベースの接続情報
 define('DB_HOST','localhost');
 define('DB_USER','animal2');
@@ -41,7 +44,11 @@ try{
 
 if(!empty($_POST['btn_submit'])) {
 
-    
+    if(!empty($_POST['admin_password']) && $_POST['admin_password'] === PASSWORD) {
+        $_SESSION['admin_login'] = true;
+    }else{
+        $error_message[] = 'ログインに失敗しました。';
+    } 
 }
 
 if(!empty($pdo)) {
@@ -75,6 +82,7 @@ $pdo = null;
             </ul>
         <?php endif; ?>
      <section>
+         <?php if(!empty($_SESSION['admin_login'])&& $_SESSION['admin_login'] === true): ?>
         <?php if(!empty($message_array)): ?>
         <?php foreach($message_array as $value): ?>
         <article>
@@ -86,6 +94,17 @@ $pdo = null;
         </article>
         <?php endforeach; ?>
         <?php endif; ?>
+
+        <?php else: ?>
+        <!--ここにログインフォームが入る-->
+        <form method="post">
+            <div>
+                <label for="admin_password">ログインパスワード</label>
+                <input id="admin_password" type="password" name="admin_password" value="">
+            </div>
+            <input type="submit" name="btn_submit" value="ログイン">
+        </form>  
+         <?php endif; ?>
      </section>
 </body>
 </html>
