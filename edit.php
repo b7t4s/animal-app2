@@ -48,7 +48,7 @@
     if(!empty($_GET['message_id'])&& empty($_POST['message_id'])) {
 
         //SQL作成
-        $stmt = $pdo->prepare("SELECT * FROM message WHERE id = :id");
+        $stmt = $pdo->prepare("SELECT * FROM message_board WHERE id = :id");
 
         //値をセット
         $stmt->bindValue(':id',$_GET['message_id'],PDO::PARAM_INT);
@@ -97,7 +97,7 @@
             try {
                 
                 //SQL作成
-                $stmt = $pdo->prepare("UPDATE message SET view_name = :view_name,message = :message WHERE id = :id");
+                $stmt = $pdo->prepare("UPDATE message_board SET view_name = :view_name,message = :message WHERE id = :id");
 
                 //値をセット
                 $stmt->bindParam(':view_name',$view_name,PDO::PARAM_STR);
@@ -159,9 +159,9 @@
             <ul class="error_message">
                 <?php foreach($error_message as $value): ?>
                     <li>・<?php echo $value; ?></li>
-                <?php endforeach; ?>
+            　   <?php endforeach; ?>
             </ul>
-        <?php endif; ?>
+            <?php endif; ?>
         <!-- ここにメッセージの入力フォームを設置 -->
         <form method="post">
             <div>
