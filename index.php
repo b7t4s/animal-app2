@@ -14,7 +14,6 @@ date_default_timezone_set('Asia/Tokyo');
 $current_date = null;
 $message = array();
 $message_array = array();
-$success_message = null;
 $error_message = array();
 $pdo = null;
 $stmt = null;
@@ -47,7 +46,7 @@ if(!empty($_POST['btn_submit'])) {
 
     //名前の入力チェック
     if(empty($view_name)) {
-        $error_message[] = '表示名を入力してください。';
+        $error_message[] = '名前を入力してください。';
     }else{
 
         //セッションに表示名を保存
@@ -90,13 +89,16 @@ if(!empty($_POST['btn_submit'])) {
         }
 
         if($res) {
-            $success_message = 'メッセージを書き込みました。';
+            $_SESSION['$success_message'] = 'メッセージを書き込みました。';
         }else{
             $error_message[] = '書き込みに失敗しました。';
         }
 
         //プリペアドステートメントを削除
         $stmt = null;
+
+        header('Location:./');
+        exit;
     }
 }
 
@@ -123,8 +125,9 @@ $pdo = null;
 </head>
 <body>
     <form method="post">
-        <?php if(!empty($success_message)): ?>
-            <p class="success_message"><?php echo $success_message; ?></p>
+        <?php if(empty($_POST['btn_submit'])&& !empty($_SESSION['success_message'])): ?>
+            <p class="success_message"><?php echo htmlspecialchars($_SESSION['success_message'],ENT_QUOTES,'UTF-8'); ?></p>
+            <?php unset($_SESSION['success_message']); ?>
         <?php endif; ?>
         <?php if(!empty($error_message)): ?>
             <ul class="error_message">
