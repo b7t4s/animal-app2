@@ -27,6 +27,10 @@ $option = null;
 
 session_start();
 
+if(!empty($_GET['btn_logout'])) {
+    unset($_SESSION['admin_login']);
+}
+
 
 //データベースに接続
 try{
@@ -78,6 +82,13 @@ $pdo = null;
             line-height: 1.6em;
             font-size: 86%;
         } 
+        input[name=btn_logout] {
+            margin: 40px;
+            background-color: #666;
+        }
+        input[name=btn_logout]:hover {
+             background-color: #777;
+        }
     </style>
 </head>
 <body>
@@ -114,6 +125,10 @@ $pdo = null;
         </article>
         <?php endforeach; ?>
         <?php endif; ?>
+
+        <form method="get" action="">
+            <input type="submit" name="btn_logout" value="ログアウト">
+        </form>
 
         <?php else: ?>
         <!--ここにログインフォームが入る-->
