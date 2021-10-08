@@ -56,6 +56,12 @@ if(!empty($_POST['btn_submit'])) {
     //メッセージの入力チェック
     if(empty($message)) {
         $error_message[] = 'メッセージを入力してください。';      
+    }else{
+
+        //文字数を確認
+        if(100 < md_strlen($message,'UTF-8')) {
+            $error_message[] = 'メッセージは１００文字以内で入力してください。';
+        }
     }
 
     if(empty($error_message)) {
@@ -142,7 +148,7 @@ $pdo = null;
         </div>
         <div>
             <label for="message">投稿</label>
-            <textarea id="message" name="message"></textarea>
+            <textarea id="message" name="message"><?php if(!empty($message)) { echo htmlspecialchars($message,ENT_QUOTES,'UTF-8');} ?></textarea>
         </div>
         <input type="submit" name="btn_submit" value="書き込む">
      </form>
