@@ -24,7 +24,9 @@ $stmt = null;
 $res = null;
 $option = null;
 
+
 session_start();
+
 
 //データベースに接続
 try{
@@ -41,7 +43,6 @@ try{
     $error_message[] = $e->getMessage();
 }
 
-
 if(!empty($_POST['btn_submit'])) {
 
     if(!empty($_POST['admin_password']) && $_POST['admin_password'] === PASSWORD) {
@@ -54,7 +55,7 @@ if(!empty($_POST['btn_submit'])) {
 if(!empty($pdo)) {
 
      //メッセージのデータを取得する
-     $sql = "SELECT view_name,message,post_date FROM message_board ORDER BY post_date DESC";
+     $sql = "SELECT * FROM message_board ORDER BY post_date DESC";
      $message_array = $pdo->query($sql);   
 }
 
@@ -71,6 +72,13 @@ $pdo = null;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wan.chibi 管理ページ</title>
+    <style>
+        .info p {
+            display: inline-block;
+            line-height: 1.6em;
+            font-size: 86%;
+        } 
+    </style>
 </head>
 <body>
     <h1>管理ページ</h1>
@@ -86,6 +94,11 @@ $pdo = null;
 
         <!--download.phpを呼び出す為のボタンを設置-->
         <form method="get" action="./download.php">
+            <select name="limit">
+                <option value="">全て</option>
+                <option value="10">10件</option>
+                <option value="30">30件</option>
+            </select>
             <input type="submit" name="btn_download" value="ダウンロード">
         </form>
 
@@ -95,6 +108,7 @@ $pdo = null;
             <div class="info">
                 <h2><?php echo htmlspecialchars($value['view_name'],ENT_QUOTES,'UTF-8'); ?></h2>
                 <time><?php echo date('Y年m月d日 H:i', strtotime($value['post_date'])); ?></time>
+                <p><a href="edit.php?message_id=<?php echo $value['id']; ?>">編集</a><a href="delete.php?message_id=<?php echo $value['id']; ?>">削除</a></p>
             </div>
             <p><?php echo nl2br(htmlspecialchars($value['message'],ENT_QUOTES,'UTF-8')); ?></p>
         </article>
