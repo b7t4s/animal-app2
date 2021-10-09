@@ -59,7 +59,7 @@ if(!empty($_POST['btn_submit'])) {
     }else{
 
         //文字数を確認
-        if(100 < md_strlen($message,'UTF-8')) {
+        if(100 < mb_strlen($message,'UTF-8')) {
             $error_message[] = 'メッセージは１００文字以内で入力してください。';
         }
     }
@@ -95,7 +95,7 @@ if(!empty($_POST['btn_submit'])) {
         }
 
         if($res) {
-            $_SESSION['$success_message'] = 'メッセージを書き込みました。';
+            $_SESSION['success_message'] = 'メッセージを書き込みました。';
         }else{
             $error_message[] = '書き込みに失敗しました。';
         }
@@ -130,7 +130,6 @@ $pdo = null;
     <title>wan.chibi</title>
 </head>
 <body>
-    <form method="post">
         <?php if(empty($_POST['btn_submit'])&& !empty($_SESSION['success_message'])): ?>
             <p class="success_message"><?php echo htmlspecialchars($_SESSION['success_message'],ENT_QUOTES,'UTF-8'); ?></p>
             <?php unset($_SESSION['success_message']); ?>
@@ -142,6 +141,7 @@ $pdo = null;
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
+    <form method="post">
         <div>
             <label for="view_name">名前</label>
             <input id="view_name" type="text" name="view_name" value="<?php if(!empty($_SESSION['view_name'])){ echo htmlspecialchars($_SESSION['view_name'],ENT_QUOTES,'UTF-8'); } ?>">
