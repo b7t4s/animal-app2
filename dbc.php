@@ -4,27 +4,44 @@
 //②foreachで表示
 //-出力はエスケープする
 
-function dbc()
-{
-    $host = "localhost";
-    $dbname = "animal-app";
-    $user = "root";
-    $pass = "root";
+    define('DB_HOST','localhost');
+    define('DB_USER','animal2');
+    define('DB_PASS','animal20219');
+    define('DB_NAME','animal-app2');
 
-    $dns = "mysql:host=$host;dbname=$dbname;charset=utf8";
+    //データベースに接続
+try{
 
-    try {
-        $pdo = new PDO($dns, $user, $pass,
-            [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            ]);
-        return $pdo;
-    } catch (PDOException $e) {
-        exit($e->getMessage());
-    }
+    $option = array(
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::MYSQL_ATTR_MULTI_STATEMENTS => false
+    );
+    $pdo = new PDO('mysql:charset=UTF8;dbname='.DB_NAME.';host='.DB_HOST,DB_USER,DB_PASS,$option);
 
+}catch(PDOException $e) {
+
+    //接続エラーの時エラー内容を取得する
+    $error_message[] = $e->getMessage();
 }
+
+// function dbc()
+// {
+    
+
+//     $dns = "mysql:host=$host;dbname=$dbname;charset=utf8";
+
+//     try {
+//         $pdo = new PDO($dns, $user, $pass,
+//             [
+//                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+//                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+//             ]);
+//         return $pdo;
+//     } catch (PDOException $e) {
+//         exit($e->getMessage());
+//     }
+
+// }
 
 /**
  * ファイルデータを保存
