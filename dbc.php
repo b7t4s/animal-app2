@@ -50,18 +50,17 @@ try{
  * @param string $caption 投稿の説明
  * @return bool $result
  */
-function fileSave($filename, $save_path, $caption)
+function fileSave($filename, $save_path)
 {
     $result = false;
 
-    $sql = "INSERT INTO file_table(file_name,file_path,caption)VALUES(?,?,?)";
+    $sql = "INSERT INTO file_table(file_name,file_path)VALUES(?,?)";
 
     try {
         $stmt = dbc()->prepare($sql); //SQLの準備
 
         $stmt->bindValue(1, $filename); //？に三つ入れる
         $stmt->bindValue(2, $save_path);
-        $stmt->bindValue(3, $caption);
 
         $result = $stmt->execute(); //SQL文を実行
         return $result;
