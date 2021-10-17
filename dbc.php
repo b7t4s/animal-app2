@@ -47,7 +47,6 @@ try{
  * ファイルデータを保存
  * @param string $filename ファイル名
  * @param string $save_path 保存先のパス
- * @param string $caption 投稿の説明
  * @return bool $result
  */
 function fileSave($filename, $save_path)

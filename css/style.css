@@ -1,3 +1,11 @@
+/* body {
+    padding: 30px;
+    margin: 0 auto;
+    width: 50%;
+} */
+
+
+
 img#logo {
     height: 185px;
     margin: -60px;
@@ -5,7 +13,7 @@ img#logo {
 }
 
 .carousel-item-ex > img{
-    height: 650px;
+    height: 550px;
     object-fit: cover;
 }
 

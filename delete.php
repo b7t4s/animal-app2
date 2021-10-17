@@ -112,26 +112,79 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>wan.chibi 管理ページ(投稿の削除)</title>
-   <style>
-       .btn_cancel {
-           display: inline_block;
-           margin-right: 10px; 
-           padding: 10px 20px;
-           color: #555;
-           font-size: 86%;
-           border-radius: 5px;
-           border: 1px solid #999;
-       }
-       .btn_cancel:hover {
-           color: #999;
-           border-color: #999;
-           text-decoration: none;
-       }
-       .text_confirm {
-           margin-bottom: 20px;
-           font-size: 86%;
-           line-height: 1.6em;
-       }
+   <style>     
+        body {
+            padding: 30px;
+            margin: 0 auto;
+            width: 50%;
+        }
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 86%;
+        }
+        input[type="text"],
+        textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 86%;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            background: #fff;
+        }
+        input[type="text"] {
+            width: 200px;
+        }
+        textarea {
+            width: 50%;
+            max-width: 50%;
+            height: 70px;
+        }
+        input[type="submit"] {
+            appearance: none;
+            -webkit-appearance: none;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 86%;
+            line-height: 1.0em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #37a1e5;
+        }
+        input[type=submit]:hover,
+        button:hover {
+            background-color: #2392d8;
+        }
+        .btn_cancel {
+            appearance: none;
+            -webkit-appearance: none;
+            display: inline_block;
+            margin-right: 10px; 
+            padding: 10px 20px;
+            color: #555;
+            font-size: 86%;
+            border-radius: 5px;
+            border: 1px solid #999;
+        }
+        .btn_cancel:hover {
+            color: #999;
+            border-color: #999;
+            text-decoration: none;
+        }
+        @media only screen and (max-width: 1000px) {
+            body {
+                padding: 30px 5%;
+            }
+            input[type="text"] {
+                width: 100%;
+            }
+            textarea {
+                width: 100%;
+                max-width: 100%;
+                height: 70px;
+            }
+        } 
    </style>
 </head>
 <body>
@@ -149,11 +202,11 @@
        <!-- ここにメッセージの入力フォームを設置 -->
        <form method="post">
            <div>
-               <label for="view_name">表示名</label>
+               <label for="view_name">名前</label>
                <input id="view_name" type="text" name="view_name" value="<?php if(!empty($message_data['view_name'])) {echo $message_data['view_name'];} elseif(!empty($view_name)) {echo htmlspecialchars($view_name,ENT_QUOTES,'UTF-8');}?>"disabled>
            </div>
            <div>
-               <label for="message">ひと言メッセージ</label>
+               <label for="message">投稿</label>
                <textarea id="message" name="message" disabled><?php if(!empty($message_data['message'])) {echo $message_data['message'];} elseif(!empty($message)) {echo htmlspecialchars($message,ENT_QUOTES,'UTF-8');} ?></textarea>
            </div>
                <a class="btn_cancel" href="admin.php">キャンセル</a>

@@ -77,6 +77,16 @@ $pdo = null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wan.chibi 管理ページ</title>
     <style>
+        body {
+            padding: 30px;
+            margin: 0 auto;
+            width: 50%;
+        }
+
+        textarea {
+            width: 98%;
+            height: 60px;
+        }
         .info p {
             display: inline-block;
             line-height: 1.6em;
@@ -89,6 +99,64 @@ $pdo = null;
         input[name=btn_logout]:hover {
              background-color: #777;
         }
+        /*-----------------------------------
+        掲示板エリア
+        -----------------------------------*/
+        article {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #fff;
+        }
+        article.reply {
+            position: relative;
+            margin-top: 15px;
+            margin-left: 30px;
+        }
+        article.reply::before {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            display: block;
+            content: "";
+            border-top: none;
+            border-left: 7px solid #f7f7f7;
+            border-right: 7px solid #f7f7f7;
+            border-bottom: 10px solid #fff;
+        }
+            .info {
+                margin-bottom: 10px;
+            }
+            .info h2 {
+                display: inline-block;
+                margin-right: 10px;
+                color: #222;
+                line-height: 1.6em;
+                font-size: 86%;
+            }
+            .info time {
+                color: #999;
+                line-height: 1.6em;
+                font-size: 72%;
+            }
+            article p {
+                color: #555;
+                font-size: 86%;
+                line-height: 1.6em;
+            }
+        @media only screen and (max-width: 1000px) {
+            body {
+                padding: 30px 5%;
+            }
+            input[type="text"] {
+                width: 100%;
+            }
+            textarea {
+                width: 100%;
+                max-width: 100%;
+                height: 70px;
+            }
+        } 
     </style>
 </head>
 <body>

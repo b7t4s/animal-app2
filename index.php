@@ -1,5 +1,9 @@
 <?php 
 
+// require_once './dbc.php';
+// $files = getAllFile();
+
+
 //データベースの接続情報
 define('DB_HOST','localhost');
 define('DB_USER','animal2');
@@ -139,6 +143,112 @@ $pdo = null;
     
     <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
+<style>
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 86%;
+        }
+        input[type="text"],
+        textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 86%;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            background: #fff;
+        }
+        input[type="text"] {
+            width: 200px;
+        }
+        textarea {
+            width: 50%;
+            max-width: 50%;
+            height: 70px;
+        }
+        input[type="submit"] {
+            appearance: none;
+            -webkit-appearance: none;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 86%;
+            line-height: 1.0em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #37a1e5;
+        }
+        input[type=submit]:hover,
+        button:hover {
+            background-color: #2392d8;
+        }
+        .success_message {
+            margin-bottom: 20px;
+            padding: 10px;
+            color: #48b400;
+            border-radius: 10px;
+            border: 1px solid #4dc100;
+        }
+        .error_message {
+            margin-bottom: 20px;
+            padding: 10px;
+            color: #ef072d;
+            list-style-type: none;
+            border-radius: 10px;
+            border: 1px solid #ff5f79;
+        }
+        .success_message,
+        .error_message li {
+            font-size: 86%;
+            line-height: 1.6em;
+        }
+
+        /*-----------------------------------
+        掲示板エリア
+        -----------------------------------*/
+        article {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #fff;
+        }
+        article.reply {
+            position: relative;
+            margin-top: 15px;
+            margin-left: 30px;
+        }
+        article.reply::before {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            display: block;
+            content: "";
+            border-top: none;
+            border-left: 7px solid #f7f7f7;
+            border-right: 7px solid #f7f7f7;
+            border-bottom: 10px solid #fff;
+        }
+            .info {
+                margin-bottom: 10px;
+            }
+            .info h2 {
+                display: inline-block;
+                margin-right: 10px;
+                color: #222;
+                line-height: 1.6em;
+                font-size: 86%;
+            }
+            .info time {
+                color: #999;
+                line-height: 1.6em;
+                font-size: 72%;
+            }
+            article p {
+                color: #555;
+                font-size: 86%;
+                line-height: 1.6em;
+            }
+</style>
 <body>
     <!-- ■ ヘッダーエリア -->
     <header>
