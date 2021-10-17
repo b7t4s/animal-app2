@@ -124,12 +124,68 @@ $pdo = null;
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- オリジナルCSS -->
+    <link rel="stylesheet" href="./css/style.css">
+
     <title>wan.chibi</title>
+    
+    <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
 <body>
+    <!-- ■ ヘッダーエリア -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <!--<a class="navbar-brand">--><img src="images/logo2.png" id="logo"><!--</a>-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">マイページ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ■ カルーセルエリア -->
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item carousel-item-ex active">
+                <img src="images/wan.chibi.png" class="d-block w-100 img-fluid" alt="写真">
+            </div>
+            <div class="carousel-item carousel-item-ex">
+                <img src="images/207494.jpg" class="d-block w-100 img-fluid" alt="写真">
+            </div>
+            <div class="carousel-item carousel-item-ex">
+                <img src="images/1.png" class="d-block w-100 img-fluid" alt="写真">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+    </div>
+
         <?php if(empty($_POST['btn_submit'])&& !empty($_SESSION['success_message'])): ?>
             <p class="success_message"><?php echo htmlspecialchars($_SESSION['success_message'],ENT_QUOTES,'UTF-8'); ?></p>
             <?php unset($_SESSION['success_message']); ?>
@@ -166,5 +222,20 @@ $pdo = null;
         <?php endforeach; ?>
         <?php endif; ?>
      </section>
+
+      <!-- ■ フッターエリア -->
+    <footer>
+        <div class="container">
+            <p class="text-center">© 2021 Copyright: アニマルAPP</p>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>
