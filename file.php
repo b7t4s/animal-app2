@@ -52,17 +52,17 @@ echo '<br>';
 // ===== デバッグコード =====
 
 //キャプションを取得
-$caption = filter_input(INPUT_POST, 'caption', FILTER_SANITIZE_SPECIAL_CHARS);
+// $caption = filter_input(INPUT_POST, 'caption', FILTER_SANITIZE_SPECIAL_CHARS);
 
 //キャプションのバリデーション
 //未入力かどうか調べる
-if (empty($caption)) {
-    array_push($err_msgs, 'キャプションを入力してください。');
-}
+// if (empty($caption)) {
+//     array_push($err_msgs, 'キャプションを入力してください。');
+// }
 //140字以内か
-if (strlen($caption) > 140) {
-    array_push($err_msgs, 'キャプションは140字以内で入力してください。');
-}
+// if (strlen($caption) > 140) {
+//     array_push($err_msgs, 'キャプションは140字以内で入力してください。');
+// }
 
 //ファイルのバリデーション
 //ファイルサイズが2MB未満か
