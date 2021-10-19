@@ -150,11 +150,13 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            background-color: #37a1e5;
+            /* background-color: #37a1e5; */
+            background-color: #bdb7ae;
         }
         input[type=submit]:hover,
         button:hover {
-            background-color: #2392d8;
+            /* background-color: #2392d8; */
+            background-color: #ab7474;
         }
         .btn_cancel {
             appearance: none;

@@ -176,11 +176,12 @@ $pdo = null;
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            background-color: #37a1e5;
+            /* background-color: #37a1e5; */
+            background-color: #bdb7ae;
         }
         input[type=submit]:hover,
         button:hover {
-            background-color: #2392d8;
+            background-color: #ab7474;
         }
         .success_message {
             margin-bottom: 20px;
@@ -277,13 +278,13 @@ $pdo = null;
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item carousel-item-ex active">
-                <img src="images/wan.chibi.png" class="d-block w-100 img-fluid" alt="写真">
+                <img src="images/title.png" class="d-block w-100 img-fluid" alt="写真">
             </div>
             <div class="carousel-item carousel-item-ex">
-                <img src="images/207494.jpg" class="d-block w-100 img-fluid" alt="写真">
+                <img src="images/concept1.png" class="d-block w-100 img-fluid" alt="写真">
             </div>
             <div class="carousel-item carousel-item-ex">
-                <img src="images/1.png" class="d-block w-100 img-fluid" alt="写真">
+                <img src="images/concept2.png" class="d-block w-100 img-fluid" alt="写真">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">
@@ -332,6 +333,15 @@ $pdo = null;
         <?php endforeach; ?>
         <?php endif; ?>
      </section>
+     <div class="card-group">
+        <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
 
       <!-- ■ フッターエリア -->
     <footer>
