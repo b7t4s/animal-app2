@@ -333,7 +333,7 @@ $pdo = null;
         <?php endforeach; ?>
         <?php endif; ?>
      </section>
-     <div class="card-group">
+     <!-- <div class="card-group">
         <div class="card">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
@@ -341,12 +341,21 @@ $pdo = null;
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
+    </div> -->
+    <div style="position: relative; padding-bottom: 56.25%;">
+        <iframe 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+            src="https://www.youtube.com/embed/eJ36aZiAiwg" 
+            frameborder="0" 
+            allow="autoplay; 
+            encrypted-media" 
+            allowfullscreen>
+        </iframe>
     </div>
-
       <!-- ■ フッターエリア -->
     <footer>
         <div class="container">
-            <p class="text-center">© 2021 Copyright: アニマルAPP</p>
+            <p class="text-center">© 2021 Copyright: wan.chibi</p>
         </div>
     </footer>
 
