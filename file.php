@@ -85,7 +85,7 @@ if (count($err_msgs) === 0) {
         if (move_uploaded_file($tmp_path, $save_path)) {
             echo $filename . 'を' . $upload_dir . 'アップしました。';
             //DBに保存（ファイル名、ファイルパス、キャプション)
-            $result = fileSave($filename, $save_path, $caption);
+            $result = fileSave($filename, $save_path,$message);
 
             if ($result) {
                 echo 'データベースに保存しました。';
