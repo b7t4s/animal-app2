@@ -4,6 +4,11 @@
 //③DBへの保存
 
 require_once './dbc.php';
+define('DB_HOST','localhost');
+define('DB_USER','animal2');
+define('DB_PASS','animal20219');
+define('DB_NAME','animal-app2');
+
 
 //ファイル関連の取得
 // $file = $_FILE['img'];
