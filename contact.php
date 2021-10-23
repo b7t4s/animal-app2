@@ -28,6 +28,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: confirm.php');
         exit();
     }
+} else {
+    if(isset($_SESSION['form'])) {
+        $post = $_SESSION['form'];
+    }
 }
 
 
