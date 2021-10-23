@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $error = [];
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -22,6 +24,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if(count($error) === 0) {
         //エラーがなかったら確認画面に移動
+        $_SESSION['form'] = $post;
         header('Location: confirm.php');
         exit();
     }
