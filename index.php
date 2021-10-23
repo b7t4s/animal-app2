@@ -266,7 +266,7 @@ $pdo = null;
                             <a class="nav-link active" aria-current="page" href="#">ホーム</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">マイページ</a>
+                            <a class="nav-link" href="contact.php">お問い合わせ</a>
                         </li>
                     </ul>
                 </div>
@@ -308,7 +308,7 @@ $pdo = null;
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <div>
             <label for="view_name">名前</label>
             <input id="view_name" type="text" name="view_name" value="<?php if(!empty($_SESSION['view_name'])){ echo htmlspecialchars($_SESSION['view_name'],ENT_QUOTES,'UTF-8'); } ?>">
@@ -316,6 +316,10 @@ $pdo = null;
         <div>
             <label for="message">投稿</label>
             <textarea id="message" name="message"><?php if(!empty($message)) { echo htmlspecialchars($message,ENT_QUOTES,'UTF-8');} ?></textarea>
+        </div>
+        <div class="file-up">
+            <input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
+            <input name="img" type="file" accept="image/*" />
         </div>
         <input type="submit" name="btn_submit" value="書き込む">
      </form>
